@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alberto.popularmovies.DetailActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/detail_poster_iw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/label_title"
+            app:layout_constraintStart_toEndOf="@+id/detail_poster_iw"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_title_tw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@id/label_title"
+            app:layout_constraintTop_toBottomOf="@+id/label_title" />
+
+        <TextView
+            android:id="@+id/label_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/label_rating"
+            app:layout_constraintStart_toStartOf="@+id/label_title"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title_tw" />
+
+        <ImageView
+            android:id="@+id/star_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/star_icon_description"
+            android:src="@drawable/ic_star_black_24dp"
+            app:layout_constraintStart_toStartOf="@id/label_title"
+            app:layout_constraintTop_toBottomOf="@id/label_rating" />
+
+        <TextView
+            android:id="@+id/detail_average_vote_tw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/star_icon"
+            app:layout_constraintStart_toEndOf="@id/star_icon"
+            app:layout_constraintTop_toTopOf="@id/star_icon" />
+
+        <TextView
+            android:id="@+id/label_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/label_release_date"
+            app:layout_constraintStart_toStartOf="@+id/label_title"
+            app:layout_constraintTop_toBottomOf="@+id/star_icon" />
+
+        <TextView
+            android:id="@+id/detail_release_date_tw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/label_title"
+            app:layout_constraintTop_toBottomOf="@+id/label_date" />
+
+
+        <TextView
+            android:id="@+id/label_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/label_overview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_poster_iw" />
+
+        <TextView
+            android:id="@+id/detail_plot_tw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_overview" />
+
+        <TextView
+            android:id="@+id/label_trailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/label_trailer"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_plot_tw" />
+
+        <ImageView
+            android:id="@+id/detail_trailer_1_iw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="4dp"
+            android:contentDescription="@string/image_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/detail_trailer_2_iw"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_trailer"
+            android:clickable="true"/>
+
+        <ImageView
+            android:id="@+id/detail_trailer_2_iw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/image_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_trailer_1_iw"
+            app:layout_constraintTop_toTopOf="@id/detail_trailer_1_iw"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/label_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/label_review"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_trailer_1_iw" />
+
+        <TextView
+            android:id="@+id/detail_review_tw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_review" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

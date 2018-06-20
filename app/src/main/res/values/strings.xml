@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+
+    <string name="image_description">Movie thumbnail</string>
+    <string name="star_icon_description">Star icon</string>
+
+    <string name="menu_spinner">Sort By</string>
+
+    <string-array name="spinner_options">
+        <item>Most Popular</item>
+        <item>Highest Rated</item>
+        <item>Favorites</item>
+    </string-array>
+
+    <string name="label_title">Title:</string>
+    <string name="label_release_date">Release date:</string>
+    <string name="label_rating">Rating:</string>
+    <string name="label_overview">Overview:</string>
+    <string name="label_review">Review:</string>
+    <string name="label_trailer">Trailer:</string>
+
+</resources>
