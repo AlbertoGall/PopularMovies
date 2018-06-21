@@ -173,12 +173,18 @@ public class MainActivity extends AppCompatActivity implements
         if (data.moveToFirst()) {
             ArrayList<PopularMovie> popularMovies = new ArrayList<>();
             do {
-                String title = data.getString(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_TITLE));
-                String plot = data.getString(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_PLOT));
-                String poster = data.getString(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_POSTER));
-                String date = data.getString(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_RELEASE_DATE));
-                double vote = data.getDouble(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_AVERAGE_VOTE));
-                int id = data.getInt(data.getColumnIndex(FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID));
+                String title = data.getString(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_TITLE));
+                String plot = data.getString(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_PLOT));
+                String poster = data.getString(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_POSTER));
+                String date = data.getString(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_RELEASE_DATE));
+                double vote = data.getDouble(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_AVERAGE_VOTE));
+                int id = data.getInt(data.getColumnIndex(FavoritesMoviesContract
+                        .FavoritesMovies.COLUMN_MOVIE_ID));
 
                 popularMovies.add(new PopularMovie(id, title, date, poster, vote, plot));
             } while (data.moveToNext());
@@ -282,10 +288,12 @@ public class MainActivity extends AppCompatActivity implements
                 mPosition = savedInstanceState.getInt(SORT_BY);
             }
             if (savedInstanceState.containsKey(KEY_INSTANCE_STATE_RV_POSITION)) {
-                mLayoutManagerSavedState = savedInstanceState.getParcelable(KEY_INSTANCE_STATE_RV_POSITION);
+                mLayoutManagerSavedState = savedInstanceState
+                        .getParcelable(KEY_INSTANCE_STATE_RV_POSITION);
             }
             if (savedInstanceState.containsKey(KEY_POPULAR_MOVIE_ARRAY)) {
-                mPopularMovieArray = savedInstanceState.getParcelableArrayList(KEY_POPULAR_MOVIE_ARRAY);
+                mPopularMovieArray = savedInstanceState
+                        .getParcelableArrayList(KEY_POPULAR_MOVIE_ARRAY);
             }
         }
     }

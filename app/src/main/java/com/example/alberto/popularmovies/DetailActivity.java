@@ -25,7 +25,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class DetailActivity extends AppCompatActivity
+        implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final static String POSTER_LINK = "http://image.tmdb.org/t/p/w500/";
     private final static String TRAILER_THUMBNAIL_LINK = "https://img.youtube.com/vi/";
@@ -35,7 +36,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
     private final static int ID_DETAIL_LOADER = 793;
 
-    private final static String[] DETAIL_PROJECTION = {FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID};
+    private final static String[] DETAIL_PROJECTION = {FavoritesMoviesContract.FavoritesMovies
+            .COLUMN_MOVIE_ID};
 
     ImageView mTrailer1ImageView;
     ImageView mTrailer2ImageView;
@@ -131,7 +133,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 return new CursorLoader(this,
                         FavoritesMoviesContract.FavoritesMovies.CONTENT_URI,
                         DETAIL_PROJECTION,
-                        FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID + " == " + mMovie.getId(),
+                        FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID +
+                                " == " + mMovie.getId(),
                         null,
                         null);
             default:
@@ -140,7 +143,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     @Override
-    public void onLoadFinished(@NonNull android.support.v4.content.Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull android.support.v4.content.Loader<Cursor> loader,
+                               Cursor data) {
         mMovie.setFavorite(data.getCount() > 0);
         data.close();
         invalidateOptionsMenu();
@@ -193,13 +197,15 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                     }
                 });
                 if (trailerKeys.length > 1) {
-                    mTrailersKeys[1] = TRAILER_THUMBNAIL_LINK + trailerKeys[1] + TRAILER_THUMBNAIL_FILE;
+                    mTrailersKeys[1] = TRAILER_THUMBNAIL_LINK + trailerKeys[1] +
+                            TRAILER_THUMBNAIL_FILE;
                     Picasso.with(context).load(mTrailersKeys[1]).into(mTrailer2ImageView);
                     mTrailer2ImageView.setOnClickListener(new View.OnClickListener(){
 
                         @Override
                         public void onClick(View v) {
-                            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + trailerKeys[1])));
+                            context.startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("vnd.youtube:" + trailerKeys[1])));
                         }
                     });
                 }

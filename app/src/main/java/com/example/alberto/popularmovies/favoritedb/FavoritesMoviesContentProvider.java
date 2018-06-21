@@ -23,8 +23,10 @@ public class FavoritesMoviesContentProvider extends ContentProvider {
 
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-        matcher.addURI(FavoritesMoviesContract.AUTHORITY, FavoritesMoviesContract.PATH_FAVORITES, MOVIES);
-        matcher.addURI(FavoritesMoviesContract.AUTHORITY, FavoritesMoviesContract.PATH_FAVORITES + "/#", MOVIES_ID);
+        matcher.addURI(FavoritesMoviesContract.AUTHORITY,
+                FavoritesMoviesContract.PATH_FAVORITES, MOVIES);
+        matcher.addURI(FavoritesMoviesContract.AUTHORITY,
+                FavoritesMoviesContract.PATH_FAVORITES + "/#", MOVIES_ID);
 
         return matcher;
     }
@@ -51,7 +53,8 @@ public class FavoritesMoviesContentProvider extends ContentProvider {
                 long id = db.insert(TABLE_NAME, null, contentValues);
 
                 if (id > 0) {
-                    insertUri = ContentUris.withAppendedId(FavoritesMoviesContract.FavoritesMovies.CONTENT_URI, id);
+                    insertUri = ContentUris.withAppendedId(
+                            FavoritesMoviesContract.FavoritesMovies.CONTENT_URI, id);
                 } else {
                     throw new android.database.SQLException("Failed to insert row into " + uri);
                 }
@@ -69,7 +72,8 @@ public class FavoritesMoviesContentProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s,
+                        @Nullable String[] strings1, @Nullable String s1) {
 
         final SQLiteDatabase db = moviesDbHelper.getReadableDatabase();
 
@@ -78,7 +82,8 @@ public class FavoritesMoviesContentProvider extends ContentProvider {
 
         switch (uriMatch) {
             case MOVIES:
-                queryCursor = db.query(TABLE_NAME, strings, s, strings1, null, null, s1);
+                queryCursor = db.query(TABLE_NAME, strings, s, strings1, null,
+                        null, s1);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -117,7 +122,8 @@ public class FavoritesMoviesContentProvider extends ContentProvider {
     }
 
     @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s,
+                      @Nullable String[] strings) {
         throw new UnsupportedOperationException("Function not implemented");
     }
 

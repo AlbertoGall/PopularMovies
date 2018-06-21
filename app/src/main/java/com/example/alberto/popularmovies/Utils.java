@@ -94,7 +94,8 @@ class Utils {
                 String poster = movie.optString(JSON_POSTER_STRING);
                 double voteAverage = movie.optDouble(JSON_VOTE_DOUBLE);
                 String overview = movie.optString(JSON_OVERVIEW_STRING);
-                PopularMovie popularMovie = new PopularMovie(id,title,releaseDate,poster,voteAverage,overview);
+                PopularMovie popularMovie = new PopularMovie(id,title,releaseDate,poster,
+                        voteAverage,overview);
                 listOfMovies.add(popularMovie);
             }
         } catch (JSONException e) {
@@ -147,12 +148,18 @@ class Utils {
     static ContentValues contentValuesFromMovie (PopularMovie movie) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID, movie.getId());
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_AVERAGE_VOTE, movie.getVoteAverage());
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_PLOT, movie.getPlot());
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_POSTER, movie.getPoster());
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_RELEASE_DATE, movie.getReleaseDate());
-        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_TITLE, movie.getTitle());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_MOVIE_ID,
+                movie.getId());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_AVERAGE_VOTE,
+                movie.getVoteAverage());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_PLOT,
+                movie.getPlot());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_POSTER,
+                movie.getPoster());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_RELEASE_DATE,
+                movie.getReleaseDate());
+        contentValues.put(FavoritesMoviesContract.FavoritesMovies.COLUMN_TITLE,
+                movie.getTitle());
 
         return contentValues;
     }
